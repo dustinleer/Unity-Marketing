@@ -1,0 +1,720 @@
+/*-----------------------------------------------------------------------------------
+Theme Name: Peddlar - Unity Marketing
+Theme URI: http://www.woothemes.com/
+Version: 1.1.3
+Description: Child theme for Unity Marketing
+Author: RedX Web Design
+Author URI: http://www.redxwebdesign.com
+Template: peddlar
+-----------------------------------------------------------------------------------
+	0.	Parent CSS import
+	1.	General
+	2.	Navigation
+	3.	Columns
+	4.	Home page
+	5.	Book Page
+	6.	Store Page
+	8.	Widgets
+	9.	Gravity Forms
+	10. Footer
+	11. Media Queries
+		a. min width 800px
+			1. Slider
+			2. Navigation
+		b. max width 990px
+			1. Navigation
+			2. Book Page
+		c. max width 800px
+			1. Header
+			2. Sidebar
+			3. Home Page
+			4. Store Page
+			5. Book Page
+			6. Footer
+
+-----------------------------------------------------------------------------------*/
+/********************************************************
+0. Parent CSS Import
+********************************************************/
+@import "../peddlar/style.css";
+
+/********************************************************
+1. General Styles
+********************************************************/
+/*Adds all caps and a weight of bold where applied*/
+.allCaps {
+	text-transform: uppercase;
+	font-weight: bold;
+}
+
+/*Adds a border radius of 50% to make the profile images circular image file must be
+a perfect square to acheive this effect, it also add a border*/
+.profile {
+	border-radius: 50%;
+	border: 4px solid rgba(108, 197, 201, 1.0);
+}
+/*------------------------------------------------------
+This adjusts the current logo file, original dimensions
+are 852px x 436px this scales to 190px x 97px
+------------------------------------------------------*/
+a#logo {
+	width: 18%;
+}
+
+/*------------------------------------------------------
+Adds border to top of site
+------------------------------------------------------*/
+#top {
+	border-top: 6px solid rgba(108, 197, 201, 1);
+}
+
+/*------------------------------------------------------
+Adjusts the original padding set by the parent theme
+------------------------------------------------------*/
+#header {
+	padding-top: 0 !important;
+}
+
+/*------------------------------------------------------
+custom code injection for contact info in the header
+this was inserted in thechild theme file header.php
+------------------------------------------------------*/
+p.telenumber {
+	color: rgba(127, 127, 127, 1);
+	font-size: 1em;
+	float: right;
+	margin-top: 3em;
+	text-align: right;
+}
+
+.contactLinks {
+	color: rgba(0, 0, 0, 1);
+	text-decoration: underline;
+}
+
+.hireMe {
+	line-height: 1em;
+	color: rgba(0, 0, 0, 1);
+	font-size: 2em;
+	font-weight: 700;
+}
+
+/*------------------------------------------------------
+Horizontal rule adjustments
+------------------------------------------------------*/
+.woo-sc-hr,
+.woo-sc-divider {
+	padding-top: 0 !important;
+}
+
+/*------------------------------------------------------
+Search field adjustments
+------------------------------------------------------*/
+/*All Search Styling*/
+input[type="search"], input#s {
+	border: 1px solid rgba(211, 211, 211, 1.0);	
+	border-radius: 0.375em !important;
+	background: #fff !important;
+	font-size: 1em !important;
+}
+
+/*WordPress search widget field control*/
+input#s {
+	padding: 10px 12px !important;
+	line-height: 1.5em !important;
+}
+
+/*WordPress search widget icon control*/
+#searchform .search-submit,
+#searchform #searchsubmit,
+#searchform input[type="submit"] {
+	top: 0.75em !important;
+}
+
+/*WooCommerce search widget field control*/
+input[type="search"] {
+	padding: 10px 2px !important;
+}
+
+/*WooCommerce search widget icon control*/
+.woocommerce-product-search input[type="submit"] {
+	top: .5em !important;
+}
+
+/*------------------------------------------------------
+Post Headers
+------------------------------------------------------*/
+.post header h1 a:hover {
+	text-decoration: none;
+}
+
+.type-page header h1, h1 {
+	color: rgba(111, 197, 200, 1);
+}
+
+/*------------------------------------------------------
+Sidebar
+------------------------------------------------------*/
+#sidebar {
+	width: 24.833333% !important;
+	/*background: rgba(234, 234, 234, 1.0);*/
+	padding: 0 2% 0 1%;
+	border-left: 1px solid rgba(204, 204, 204, 1);
+}
+
+select#menu-product-menu {
+	padding: 5px !important;
+	font-size: 16px !important;
+	line-height: 1 !important;
+	height: 34px !important;
+	width: 100% !important;
+	border-radius: 0 !important;
+	margin: 2em 0 !important;
+	background: #fff !important;
+}
+
+#sidebar .widget {
+	margin-bottom: 1.236em !important;
+}
+
+/********************************************************
+2. Navigation
+********************************************************/
+#navigation ul.nav > li > a {
+  padding: 1.416em !important;
+  color: rgba(71, 71, 71, 1) !important;
+  font-weight: 700 !important;
+}
+
+#navigation ul.nav li.current-menu-item > a {
+	background: rgba(108, 197, 201, 1.0) !important;
+	color: #fff !important;
+	box-shadow: inset 0 0.207em 0 0 rgba(108, 197, 201, 1.0) !important;
+	-webkit-box-shadow: inset 0 0.207em 0 0 rgba(108, 197, 201, 1.0) !important;
+}
+
+#navigation ul.nav li.current-menu-item > a:hover {
+	color: rgba(108, 197, 201, 1.0);
+}
+
+#top ul.nav > li {
+	position: relative;
+	float: right !important;
+	zoom: 1;
+	list-style: none;
+}
+
+/*------------------------------------------------------
+Custom Drop Down Sizes
+------------------------------------------------------*/
+li#menu-item-1584 ul.sub-menu {
+	width: 200px !important;
+}
+
+li#menu-item-1576 ul.sub-menu {
+	width: 300px;
+}
+
+/********************************************************
+3. Columns
+********************************************************/
+.twocol-one,
+.threecol-one,
+.threecol-two,
+.fourcol-one,
+.fourcol-two,
+.fourcol-three,
+.fivecol-one,
+.fivecol-two,
+.fivecol-three,
+.fivecol-four,
+.sixcol-one,
+.sixcol-two,
+.sixcol-three,
+.sixcol-four,
+.sixcol-five {
+	float: left;
+	margin-right: 4%;
+	margin-bottom: 0% !important;
+	position: relative;
+}
+
+/********************************************************
+4. Home Page
+********************************************************/
+
+/*Resets the margin of all the homepage areas to 0*/
+.home .homepage-area {
+	margin-bottom: 0;
+}
+
+/*Adjusts the padding of all the homepage widget areas to 3.5em top*/
+.fullwidth-widgets .widget,
+div.home .widget, 
+iv.business .widget {
+	padding: 3.5em 0 0 !important;
+}
+
+.wrapper,
+.main-nav-inner,
+.footer-inner,
+#top .col-full,
+.footer-shop-content {
+	max-width: 76.498em !important;
+}
+
+/*------------------------------------------------------
+Slider
+------------------------------------------------------*/
+/*Controls Slider background box set by Parent*/
+.home .flexslider li.slide .slide-content header,
+.home .flexslider li.slide .slide-content .entry {
+	background-color: rgba(0, 0, 0, 0) !important;
+	width: 100% !important;
+	margin-left: 0 !important;
+	padding: 0 !important;
+}
+
+/*Customizes text on first slide*/
+.sliderTxtBaseStylesOne {
+	font-size: 1.8em;
+	line-height: 1.2em;
+	text-shadow: none;
+	color: #fff;
+}
+
+/*Customizes text on second and third slides*/
+.sliderTxtBaseStylesTwo {
+	font-size: 1.8em;
+	line-height: 1.2em;
+	text-shadow: none;
+	color: rgba(0, 0, 0, 1);
+}
+
+/*------------------------------------------------------
+H1 style for top level heading at the top of the page
+------------------------------------------------------*/
+.greeting{
+	font-size: 4.291em !important;
+}
+
+/*------------------------------------------------------
+Unity Marketing Sub-Header
+------------------------------------------------------*/
+.home .widget h2:first-of-type {
+	font-size: 1em;
+	text-transform: uppercase;
+	text-align: center;
+	margin-bottom: 2.236em !important;
+}
+
+/*------------------------------------------------------
+As Seen On TV section adjustments
+------------------------------------------------------*/
+div#honorable-mentions {
+	padding: 1em 0;
+}
+
+img.logoAlign {
+	display: block;
+	margin: 2em auto;
+}
+
+.columnFour {
+	width: 41.75%;
+}
+
+.columnThree {
+	width: 30%;
+}
+
+/*------------------------------------------------------
+Features Area
+------------------------------------------------------*/
+div#woothemes_features-2 {
+	padding: 5em 0 !important;
+}
+
+.feature img {
+	width: 15% !important;
+}
+
+/********************************************************
+5. Book Page
+********************************************************/
+a img[src*="book.png"]{
+	float: right;
+	padding: 0 0 20px 20px;
+	width: 35%;
+	height: 35%;
+	/*border: 1px solid red;*/
+}
+
+/********************************************************
+6. Store Page
+********************************************************/
+/*------------------------------------------------------
+Single Products
+------------------------------------------------------*/
+/*Product Image Styles customized from parent*/
+.single-product .images {
+	float: right !important;
+	width: 27.916667% !important;
+}
+
+/*Product Summary Styles customized from parent*/
+.single-product .summary {
+	float: left !important;
+	width: 67.916667% !important;
+}
+
+/*Price on single product page*/
+.single-product .summary .price,
+.post p.tags:before,
+.type-page p.tags:before,
+.post .post-meta .post-author a:before,
+.type-page .post-meta .post-author a:before,
+.post .post-meta .post-category a:before,
+.type-page .post-meta .post-category a:before,
+.post .post-more .comments a:before,
+.type-page .post-more .comments a:before,
+p.stars a:hover:before,
+p.stars a:focus:before {
+	color: rgba(71, 71, 71, 1) !important;
+}
+
+/*------------------------------------------------------
+Product Listings
+------------------------------------------------------*/
+/*Product details*/
+ul.products li.product .product-details h3 {
+	color: rgba(51, 51, 51, 1) !important;
+}
+
+/*Product price*/
+ul.products li.product .product-details {
+	position: relative !important;
+	background: rgba(0, 0, 0, 0) !important;
+	border: none !important;
+	color: rgba(51, 51, 51, 1) !important;
+	padding: 0 !important;
+	opacity: 100 !important;
+	filter: alpha(opacity=@opacity * 100);
+	/* -webkit-transition: all ease 0.4s;
+	-moz-transition: all ease 0.4s;
+	-ms-transition: all ease 0.4s;
+	-o-transition: all ease 0.4s;
+	transition: all ease 0.4s; */
+	margin-bottom: 2em !important;
+}
+
+/*Product button*/
+ul.products li.product .button, ul.products li.product .added_to_cart {
+	margin-bottom: 3em !important;
+}
+
+/********************************************************
+7. Single Page
+********************************************************/
+div#tab-description h2 {
+	visibility: hidden;
+	line-height: 0;
+}
+
+div#tab-reviews h2 {
+	visibility: hidden;
+	line-height: 0;	
+}
+
+/********************************************************
+8. Widgets
+********************************************************/
+/*Product List Widget customization*/
+.widget .product_list_widget li {
+	border-bottom: 1px solid rgba(223, 223, 223, 1) !important;
+	margin: 0 0 0.5em !important;
+	padding-bottom: 0.5em !important;
+}
+
+ul.product_list_widget li:last-child {
+	border-bottom: none !important;
+}
+
+/*Product List Widget Image customization*/
+.widget .product_list_widget li img {
+	visibility: hidden;
+}
+
+/*Product Price Filter Widget customization*/
+.widget_price_filter .price_slider_wrapper .ui-widget-content {
+	background: rgba(230, 230, 230, 1);
+}
+
+.widget_price_filter .ui-slider .ui-slider-range {
+	background: rgba(108, 197, 201, 1.0) !important;
+}
+
+.widget_price_filter .ui-slider .ui-slider-handle {
+	border: 1px solid rgba(108, 197, 201, 1.0) !important;
+}
+
+/********************************************************
+9. Gravity Forms & Forms
+********************************************************/
+/*Customize all input fields with the type of text and textarea*/
+input[type="text"], textarea {
+	border: 1px solid rgba(211, 211, 211, 1.0);
+	padding: 10px 4px !important;
+	font-size: 1em !important;
+
+}
+
+.gform_wrapper .gfield_required {
+	color: rgba(111, 197, 200, 1) !important;
+}
+
+/*Customize Gravity forms headers*/
+.gfield {
+	margin-bottom: 0.5em !important;
+}
+
+.ginput_container {
+	margin-bottom: 0em !important;
+}
+
+.gform_wrapper .gform_footer {
+	padding: 0 0 10px 0 !important;
+	margin: 16px 0 0 0;
+	clear: both;
+}
+
+select#input_2_7_4 {
+	font-size: 1em !important;
+	height: 41px !important;
+	width: 94% !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	background: #fff !important;
+	border: 1px solid rgba(211, 211, 211, 1.0) !important;	
+}
+/********************************************************
+10. Footer
+********************************************************/
+#footer-widgets {
+	padding: 0 !important;
+}
+
+ul#menu-footer {
+	list-style: none;
+}
+
+/*hr at top of footer*/
+#footer-widgets hr {
+	height: 1px !important;
+	background: rgba(204, 204, 204, 1) !important;
+}
+
+/*footer bar very botttom*/
+#footer {
+	padding: 1.618em 0.618em;
+	margin-left: -1.618em;
+	margin-right: -1.618em;
+	background: rgba(234, 234, 234, 1);
+}
+
+/********************************************************
+11. Media Queries
+********************************************************/
+@media only screen and (min-width: 800px) {  
+	/********************************************************
+	1. Slider
+	/********************************************************/
+	.home .flexslider li.slide .slide-content {
+		width: 80% !important;
+		left: 7% !important;
+		position: absolute;
+		top: 5.997em;
+		display: block;
+		background: rgba(247, 247, 247, 1) !important;
+		border-bottom: 1px solid rgba(204, 204, 204, 1) !important;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0) !important;
+	}
+	
+	/********************************************************
+	2. Navigation
+	********************************************************/
+	#navigation #main-nav {
+		margin-left: 0% !important;
+		margin-right: 0% !important;
+		*margin-left: 0% !important;
+		*margin-right: 0% !important;
+	}
+  	
+	.page-template-template-contact-php #location,
+	.page-template-template-contact-php #twitter-connect {
+		width: 100% !important;
+	}
+}
+
+@media screen and (max-width: 990px) {
+	/********************************************************
+	1. Navigation
+	********************************************************/
+	#navigation ul.nav > li > a {
+		font-size: 1.5rem !important;
+		padding: 2rem 1.25rem !important;
+		color: rgba(71, 71, 71, 1) !important;
+		font-weight: 700 !important;
+	}
+	
+	/********************************************************
+	2. Books Page
+	********************************************************/
+	a img[src*="book.png"]{
+		float: right;
+		padding: 0 0 0 80px;
+		width: 50%;
+		height: 50%;
+		/*border: 1px solid red;*/
+	}
+}
+
+@media screen and (max-width: 800px) {
+	/********************************************************
+	1. Header
+	********************************************************/
+	a#logo {
+		width: 40%;
+		margin-top: 1em;
+	}
+	
+	p.telenumber {
+		color: rgba(71, 71, 71, 1);
+		font-size: .75em;
+		font-weight: 700;
+		margin-top: 2em;
+	}
+	
+	div#main {
+		margin-top: 20px;
+	}
+	
+	/********************************************************
+	2. Sidebar
+	********************************************************/
+	#sidebar {
+	  width: 96% !important;
+	  /*background: rgba(234, 234, 234, 1.0);*/
+	  padding: 2%;
+	  margin-bottom: 1em;
+	  border-left: none;	
+	}
+
+	/********************************************************
+	3. Home Page
+	********************************************************/
+	/*------------------------------------------------------
+	Slider
+	------------------------------------------------------*/
+	.flexslider .layout-full .slide-content,
+	.flexslider .layout-full .slide-media {
+		width: auto !important;
+		float: none !important;
+		background: rgba(247, 247, 247, 1) !important;
+		border-bottom: 1px solid rgba(204, 204, 204, 1) !important;
+		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0) !important;
+	}
+
+	.sliderTxtBaseStylesOne,
+	.sliderTxtBaseStylesTwo {
+		text-align: center;
+		font-size: 1em !important;
+		line-height: 1.2em !important;
+		text-shadow: 0 0 0 rgba(0,0,0,0) !important;
+		color: rgba(71, 71, 71, 1.0) !important;
+	}
+	/*------------------------------------------------------
+	H1 style for top level heading at the top of the page
+	------------------------------------------------------*/
+	.greeting {
+	  font-size: 2.291em !important;
+	}	
+	
+	/*------------------------------------------------------
+	As Seen On TV section adjustments
+	------------------------------------------------------*/
+	img.logoAlign {
+		width: 25%;
+		margin: 1em auto;
+	}
+
+	/*------------------------------------------------------
+	Features Area
+	------------------------------------------------------*/	
+	div#woothemes_features-2 {
+		padding: 1.5em 0 !important;
+	}
+	
+	.features.columns-3 {
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	.feature {
+		margin-bottom: 4em;
+	}
+	
+	.feature, .last {
+		margin-bottom: 0em;
+	}
+	
+	/********************************************************
+	4. Store Page
+	********************************************************/
+	.single-product .images {
+		float: right !important;
+		width: 100% !important;
+	}
+	
+	.single-product .images img {
+		max-width: 100%;
+		height: auto;
+		margin: 0 auto 1em auto;
+		width: 100%;
+	}	
+	
+	.single-product .summary {
+		float: left !important;
+		width: 100% !important;
+	}
+	
+	/********************************************************
+	5. Book Page
+	********************************************************/	
+	a img[src*="book.png"]{
+		float: none;
+		padding: 0 0 0 80px;
+		width: 80%;
+		height: 80%;
+		/*border: 1px solid red;*/
+	}
+
+	/********************************************************
+	6. Footer
+	********************************************************/
+	.textwidget img .profile {
+		border-radius: 50%;
+		margin-left: 90px;
+		margin: 0 auto;
+		border: 4px solid rgba(108, 197, 201, 1.0);
+		display: block;
+	}
+	
+	.footer-widget-1, .footer-widget-2 {
+		text-align: center;
+	}
+  	
+	ul#menu-footer-1 {
+		list-style: none;
+	}
+}
