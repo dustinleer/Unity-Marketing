@@ -26,10 +26,8 @@ get_header( 'shop' ); ?>
 	?>
 
 		<?php if ( apply_filters( 'woocommerce_show_page_title', true ) ) : ?>
-<!-- /*--------------------------------------------------------------------------
-	Things to go above the header go here! I want to insert a featured area.
-/*--------------------------------------------------------------------------- -->
-		<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
+
+			<h1 class="page-title"><?php woocommerce_page_title(); ?></h1>
 
 		<?php endif; ?>
 
@@ -40,7 +38,7 @@ get_header( 'shop' ); ?>
 			<?php
 				/**
 				 * woocommerce_before_shop_loop hook
-				 *
+				 */wp-content/plugins/woocommerce/templates/archive-product.php
 				 * @hooked woocommerce_result_count - 20
 				 * @hooked woocommerce_catalog_ordering - 30
 				 */
@@ -67,45 +65,7 @@ get_header( 'shop' ); ?>
 				 */
 				do_action( 'woocommerce_after_shop_loop' );
 			?>
-			
-<!-- /*--------------------------------------------------------------------------
-	Things to go go here for under products.
-/*--------------------------------------------------------------------------- -->
-			<div class="featurette">
-				<h3>Featured Reports</h3>
-				<?php
-					$args = array(
-						'per_page' => '4',
-						'columns' => '4',
-						'orderby' => 'date',
-						'order' => 'desc',
-						'post_type' => 'product',  
-						'meta_key' => '_featured',  
-						'meta_value' => 'yes',  
-					);				
-					
-					$featured_query = new WP_Query( $args );
-					
-						if ($featured_query->have_posts()) :
-						echo "<ul class='products featured-products'>";
-							while ($featured_query->have_posts()) :
-								$featured_query->the_post();
-								$product = get_product( $featured_query->post->ID );
-								// Output product information here
-								wc_get_template_part( 'content', 'product' );
-							endwhile;  
-						echo "</ul>";
-						endif; 
-					wp_reset_query(); // Remember to reset 
-				?>
-				<div class="featured-btn-box">
-					<a href="/product-category/featured-reports/" class="woo-sc-button featured-btn">See more featured reports</a>
-				</div>
-			</div>
-			
-			
-			
-			
+
 		<?php elseif ( ! woocommerce_product_subcategories( array( 'before' => woocommerce_product_loop_start( false ), 'after' => woocommerce_product_loop_end( false ) ) ) ) : ?>
 
 			<?php wc_get_template( 'loop/no-products-found.php' ); ?>
