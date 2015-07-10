@@ -732,12 +732,12 @@ td.product-total {
 /********************************************************
 7. Single Page
 ********************************************************/
-div#tab-description h2 {
+div#tab-description h2:first-child {
 	visibility: hidden;
 	line-height: 0;
 }
 
-div#tab-reviews h2 {
+div#tab-reviews h2:first-child {
 	visibility: hidden;
 	line-height: 0;	
 }
