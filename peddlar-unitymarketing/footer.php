@@ -77,7 +77,7 @@ if ( ( woo_active_sidebar( 'footer-1' ) ||
 		<?php if( isset( $woo_options['woo_footer_left'] ) && $woo_options['woo_footer_left'] == 'true' ) {
 				echo stripslashes( $woo_options['woo_footer_left_text'] );
 		} else { ?>
-			<p><?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?>. <?php _e( 'All Rights Reserved.', 'woothemes' ); ?></p>
+			<p><?php bloginfo(); ?> &copy; <?php echo date( 'Y' ); ?>. <?php _e( 'All Rights Reserved.', 'woothemes' ); ?> | <a href="/disclaimer/">Disclaimer</a></p>
 		<?php } ?>
 		</div>
 

@@ -21,26 +21,43 @@ Template: peddlar
 		a. min width 800px
 			1. Slider
 			2. Navigation
-		b. max width 990px
+			3. Store Page
+		b. max width 1104px
+			1. Home Page
+		c. max width 990px
 			1. Navigation
 			2. Book Page
-		c. max width 800px
+			3. Home Page
+		d. max width 950px
+			1. Store Page
+		e. max width 800px
 			1. Header
 			2. Sidebar
 			3. Home Page
 			4. Store Page
 			5. Book Page
 			6. Footer
-
+		f. max width 640px
+			1. Home Page
+			2. Store Page
 -----------------------------------------------------------------------------------*/
 /********************************************************
 0. Parent CSS Import
 ********************************************************/
-@import "../peddlar/style.css";
+/*@import "../peddlar/style.css";
+/* 	This is now properly enqueued */
 
 /********************************************************
 1. General Styles
 ********************************************************/
+body {
+	background: #fcfcfc;
+}
+
+.woo-sc-hr:nth-last-of-type(1) {
+	visibility: hidden;
+}
+
 /*Adds all caps and a weight of bold where applied*/
 .allCaps {
 	text-transform: uppercase;
@@ -51,7 +68,22 @@ Template: peddlar
 a perfect square to acheive this effect, it also add a border*/
 .profile {
 	border-radius: 50%;
-	border: 4px solid rgba(108, 197, 201, 1.0);
+	border: 6px solid rgba(108, 197, 201, 1.0);
+	display: block !important;
+	margin: 0 auto 10px !important;
+}
+
+.profile:hover {
+	border: 6px solid rgba(108, 197, 201, 1.0) !important;
+}
+
+input[type=text],
+input.input-text,
+textarea, input.txt,
+input[type=tel],
+input[type=email],
+input[type=password] {
+	border: 1px solid rgba(211, 211, 211, 1.0);
 }
 /*------------------------------------------------------
 This adjusts the current logo file, original dimensions
@@ -72,6 +104,7 @@ Adds border to top of site
 Adjusts the original padding set by the parent theme
 ------------------------------------------------------*/
 #header {
+	background: transparent !important;
 	padding-top: 0 !important;
 }
 
@@ -97,6 +130,12 @@ p.telenumber {
 	color: rgba(0, 0, 0, 1);
 	font-size: 2em;
 	font-weight: 700;
+}
+
+/*Testimonial header image*/
+img[alt*="testimonial"] {
+	border-radius: 5px;
+	border: 1px solid #CCCCCC;
 }
 
 /*------------------------------------------------------
@@ -144,6 +183,13 @@ input[type="search"] {
 /*------------------------------------------------------
 Post Headers
 ------------------------------------------------------*/
+.post header h1 a:link,
+.type-page header h1 a:link,
+.post header h1 a:visited,
+.type-page header h1 a:visited {
+	color: rgba(111, 197, 200, 1);
+}
+
 .post header h1 a:hover {
 	text-decoration: none;
 }
@@ -185,6 +231,50 @@ select#menu-product-menu {
 	margin-bottom: 1.236em !important;
 }
 
+/*------------------------------------------------------
+Input Buttons
+------------------------------------------------------*/
+input[type=submit] {
+	-webkit-appearance: none;
+}
+
+/*------------------------------------------------------
+Blog Archive Headers
+------------------------------------------------------*/
+/*Added missing space after Author meta data*/
+.post-author a::after {
+  content: " " !important;
+}
+
+/*Archive headers needed to be much smaller*/
+.archive-header h1 {
+	font-size: 1.5rem;
+	color: rgba(139, 139, 139, 1) !important;
+}
+
+.fr a {
+	font-size: 1.5rem;
+	color: rgba(139, 139, 139, 1) !important;
+	text-decoration: underline;
+}
+
+.fr a:hover {
+	color: rgba(111, 197, 200, 1) !important;
+}
+
+/*------------------------------------------------------
+After Post Details
+------------------------------------------------------*/
+#post-entries {
+  border-top: 1px solid rgba(204, 204, 204, 0.25);
+  border-bottom: 1px solid rgba(204, 204, 204, 0.25);
+}
+
+#post-author .profile-image img {
+  border-radius: 50%;
+  border: 6px solid rgba(108, 197, 201, 1.0);
+}
+
 /********************************************************
 2. Navigation
 ********************************************************/
@@ -215,12 +305,19 @@ select#menu-product-menu {
 /*------------------------------------------------------
 Custom Drop Down Sizes
 ------------------------------------------------------*/
+/* Speaking & WorkShops Dropdown */
 li#menu-item-1584 ul.sub-menu {
-	width: 200px !important;
+	width: 235px !important;
 }
 
+/* Consulting Dropdown */
 li#menu-item-1576 ul.sub-menu {
-	width: 300px;
+	width: 320px;
+}
+
+/* Reporst Dropdown */
+li#menu-item-1838 ul.sub-menu {
+  width: 190px;
 }
 
 /********************************************************
@@ -274,6 +371,11 @@ iv.business .widget {
 /*------------------------------------------------------
 Slider
 ------------------------------------------------------*/
+/*Slider Pagination Hover*/
+.flex-control-paging li a:hover {
+	background: rgba(108, 197, 201, 1);
+}
+
 /*Controls Slider background box set by Parent*/
 .home .flexslider li.slide .slide-content header,
 .home .flexslider li.slide .slide-content .entry {
@@ -302,8 +404,15 @@ Slider
 /*------------------------------------------------------
 H1 style for top level heading at the top of the page
 ------------------------------------------------------*/
-.greeting{
+.textwidget h1{
 	font-size: 4.291em !important;
+	text-align: center !important;
+}
+
+.textwidget h3 {
+	font-size: 2em;
+	text-align: center;
+	color: rgba(111, 197, 200, 1);
 }
 
 /*------------------------------------------------------
@@ -343,19 +452,67 @@ div#woothemes_features-2 {
 	padding: 5em 0 !important;
 }
 
+/*
 .feature img {
-	width: 15% !important;
+	width: 45% !important;
+}
+*/
+
+img[src*="icon-"] {
+	width: 45% !important;
+}
+
+/*------------------------------------------------------
+Featured Products Area
+------------------------------------------------------*/	
+/*Button to Alignment for Featured Products*/
+.textwidget .woocommerce ul li a h3 {
+	min-height: 130px;
+}
+
+/*Button to Reports Page*/
+a.woo-sc-button.store.custom {
+	background: rgba(49, 49, 49, 1.0);
+	margin: 0 auto 50px;
+	display: block;
+	position: relative;
+	width: 25%;
+}
+
+a.woo-sc-button.store.custom:hover {
+	background: rgba(108, 197, 201, 1.0);
+	-webkit-transition: all ease 0.4s;
+	-moz-transition: all ease 0.4s;
+	-ms-transition: all ease 0.4s;
+	-o-transition: all ease 0.4s;
+	transition: all ease 0.4s;
 }
 
 /********************************************************
 5. Book Page
 ********************************************************/
-a img[src*="book.png"]{
+.book {
 	float: right;
-	padding: 0 0 20px 20px;
+	padding: 20px;
 	width: 35%;
-	height: 35%;
-	/*border: 1px solid red;*/
+	border: 1px solid #CCCCCC;
+	background: rgb(255, 255, 255);
+	border-radius: 5px;
+	margin: 20px;
+}
+
+a img[src*="book.png"] {
+	float: right;
+	padding: 20px;
+	width: 100%;
+/* 	border: 1px solid green; */
+}
+
+a.woo-sc-button.buy-now-btn.custom {
+	clear: both;
+	margin: 0 auto;
+	display: block;
+	width: 35%;
 }
 
 /********************************************************
@@ -391,12 +548,116 @@ p.stars a:focus:before {
 	color: rgba(71, 71, 71, 1) !important;
 }
 
+.textwidget .woocommerce ul li a h3 {
+	min-height: 80px;
+}
+
+/*Active Tab*/
+.widget_woodojo_tabs ul.nav-tabs li.active a,
+.woocommerce_tabs ul.nav-tabs li.active a,
+.woocommerce-tabs ul.nav-tabs li.active a,
+.widget_woodojo_tabs ul.tabs li.active a,
+.woocommerce_tabs ul.tabs li.active a,
+.woocommerce-tabs ul.tabs li.active a {
+	background: #ffffff;
+	color: #252525;
+	border: 1px solid rgba(215,215,215,1.0);
+	border-bottom: 1px solid white;
+	top: 1px;
+}
+
+/*Hover Tab*/
+.widget_woodojo_tabs ul.nav-tabs li a:hover,
+.woocommerce_tabs ul.nav-tabs li a:hover,
+.woocommerce-tabs ul.nav-tabs li a:hover,
+.widget_woodojo_tabs ul.tabs li a:hover,
+.woocommerce_tabs ul.tabs li a:hover,
+.woocommerce-tabs ul.tabs li a:hover {
+	background: none;
+}
+
+/*Panel under Tabs*/
+.widget_woodojo_tabs .panel,
+.woocommerce_tabs .panel,
+.woocommerce-tabs .panel {
+	clear: both;
+	background: #ffffff;
+	padding: 1.618em;
+	margin-bottom: 1.618em;
+	border: 1px solid rgba(215,215,215,1.0);
+	border-radius: 2px;	
+}
+
 /*------------------------------------------------------
 Product Listings
 ------------------------------------------------------*/
+.featurette {
+	background-color: rgba(241, 241, 241, 1.0);
+	padding: 20px 20px 50px 20px;
+	border-radius: 5px;
+	border: 1px solid rgba(215, 215, 215, 1.0);
+	height: auto;
+	margin-top: 30px;
+	overflow: hidden;
+}
+
+/*adjust the height of the featured area*/
+ul.featured-products li {
+	list-style: none;
+	position: relative;
+	height: 320px;
+}
+
+ul.featured-products li a {
+	height: 320px;
+/* 	overflow: hidden; */
+}
+
+/*hides price in features section*/
+.featurette span.amount {
+	visibility: hidden !important;
+}
+
+/*hides add to cart button in features section*/
+.featurette a.button.add_to_cart_button.product_type_simple {
+	visibility: hidden;
+}
+
+/* view other featured items button */
+.featured-btn-box {
+	margin: 0 auto;
+	display: block;
+	width: 100%;
+	z-index: 3000;
+	top: 20px;
+	position: relative;
+}
+
+a.woo-sc-button.featured-btn {
+	margin: 0 auto;
+	display: block;
+	width: 75%;
+}
+
+/*Adjust margin on products*/
+ul.products {
+	list-style: none;
+	position: relative;
+	margin: 0;
+}
+
 /*Product details*/
 ul.products li.product .product-details h3 {
 	color: rgba(51, 51, 51, 1) !important;
+}
+
+/*Product Images*/
+ul.products li.product a img, .single-product .images img {
+	display: block;
+	height: auto;
+	margin: 0 auto 1.618em;
+	border-radius: 5px;
+	border: 1px solid rgba(215, 215, 215, 1.0);
 }
 
 /*Product price*/
@@ -414,11 +675,58 @@ ul.products li.product .product-details {
 	-o-transition: all ease 0.4s;
 	transition: all ease 0.4s; */
 	margin-bottom: 2em !important;
+	text-align: center !important;
 }
 
 /*Product button*/
 ul.products li.product .button, ul.products li.product .added_to_cart {
 	margin-bottom: 3em !important;
+}
+
+/*Align Cart Button*/
+#main ul li a h3 {
+	min-height: 200px !important;
+}
+
+/*Align First Child sorting button*/
+.woocommerce-ordering ul li:first-child, .woocommerce_ordering ul li:first-child {
+	margin-left: 0px !important;
+	margin-right: 6px;
+}
+
+/*Align sorting buttons*/
+.woocommerce-ordering ul li, .woocommerce_ordering ul li {
+	float: left;
+	margin-left: 0px !important;
+	margin-right: 6px;
+	margin-bottom: .75em;
+}
+
+/*Make download link a download button after checkout*/
+small a {
+	background: #6cc5c9;
+	color: #fff;
+	padding: 10px;
+	margin: 0;
+	top: 20px;
+	position: relative;
+	border-radius: 3px;
+}
+
+small a:hover {
+	color: white;
+	text-decoration: none;
+	background: #389397;
+	-webkit-transition: all ease 0.4s;
+	-moz-transition: all ease 0.4s;
+	-ms-transition: all ease 0.4s;
+	-o-transition: all ease 0.4s;
+	transition: all ease 0.4s;
+}
+
+td.product-name,
+td.product-total {
+	padding-bottom: 50px;
 }
 
 /********************************************************
@@ -496,6 +804,22 @@ input[type="text"], textarea {
 	clear: both;
 }
 
+.gform_wrapper .top_label input.medium,
+.gform_wrapper .top_label select.medium {
+  width: 98%;
+}
+
+.gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+	font-size: 1em !important;
+	height: 41px !important;
+	width: 94% !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	background: #fff !important;
+	border: 1px solid rgba(211, 211, 211, 1.0) !important;	
+}
+
+/*
 select#input_2_7_4 {
 	font-size: 1em !important;
 	height: 41px !important;
@@ -504,6 +828,24 @@ select#input_2_7_4 {
 	margin: 0 !important;
 	background: #fff !important;
 	border: 1px solid rgba(211, 211, 211, 1.0) !important;	
+}
+*/
+
+.gform_wrapper.gf_browser_chrome ul.gform_fields li.gfield select {
+	font-size: 1em !important;
+	height: 41px !important;
+	border-radius: 0 !important;
+	margin: 0 !important;
+	background: #fff !important;
+	border: 1px solid rgba(211, 211, 211, 1.0) !important;
+} 
+
+/* hide woocommerce form */
+form#contactForm {
+	visibility: hidden;
+	height: 0;
+	margin: 0;
+	overflow: hidden;
 }
 /********************************************************
 10. Footer
@@ -543,8 +885,8 @@ ul#menu-footer {
 		position: absolute;
 		top: 5.997em;
 		display: block;
-		background: rgba(247, 247, 247, 1) !important;
-		border-bottom: 1px solid rgba(204, 204, 204, 1) !important;
+		background: rgba(248, 248, 248, 0) !important;
+		border-bottom: 1px solid rgba(204, 204, 204, 0) !important;
 		text-shadow: 2px 2px 2px rgba(0, 0, 0, 0) !important;
 	}
 	
@@ -562,6 +904,29 @@ ul#menu-footer {
 	.page-template-template-contact-php #twitter-connect {
 		width: 100% !important;
 	}
+	/********************************************************
+	3. Store
+	********************************************************/
+	ul.products li.product .button, ul.products li.product .added_to_cart {
+		padding: .875em .816em !important;
+	}
+	
+	.woocommerce-ordering ul li a, .woocommerce_ordering ul li a {
+		display: block;
+	}
+}
+
+@media screen and (max-width: 1104px) {
+	/********************************************************
+	1. Home Page
+	********************************************************/
+	/*------------------------------------------------------
+	Featured Products Area
+	------------------------------------------------------*/	
+	/*Button alignment*/
+	.textwidget .woocommerce ul li a h3 {
+		min-height: 130px;
+	}	
 }
 
 @media screen and (max-width: 990px) {
@@ -576,17 +941,51 @@ ul#menu-footer {
 	}
 	
 	/********************************************************
-	2. Books Page
+	2. Book Page
 	********************************************************/
-	a img[src*="book.png"]{
+	.book {
 		float: right;
-		padding: 0 0 0 80px;
-		width: 50%;
-		height: 50%;
-		/*border: 1px solid red;*/
+		padding: 20px;
+		width: 40%;
+		border: 1px solid #CCCCCC;
+		background: rgb(255, 255, 255);
+		border-radius: 5px;
+		margin: 20px;
+	}
+	
+	a img[src*="book.png"] {
+		float: right;
+		padding: 0px;
+		width: 80%;
+/* 		border: 1px solid green; */
+	}
+	
+	a.woo-sc-button.buy-now-btn.custom {
+		clear: both;
+		margin: 0 auto;
+		display: block;
+		width: 35%;
+	}
+	
+	/********************************************************
+	3. Home Page
+	********************************************************/
+	/*------------------------------------------------------
+	Featured Products Area
+	------------------------------------------------------*/	
+	.textwidget .woocommerce ul li a h3 {
+		min-height: 130px;
 	}
 }
 
+@media screen and (max-width: 950px) {
+	/********************************************************
+	1. Store Page
+	********************************************************/
+	#main ul li a h3 {
+		min-height: 280px !important;
+	}
+}
 @media screen and (max-width: 800px) {
 	/********************************************************
 	1. Header
@@ -605,6 +1004,11 @@ ul#menu-footer {
 	
 	div#main {
 		margin-top: 20px;
+	}
+	
+	/*Button to Reports Page*/
+	a.woo-sc-button.store.custom {
+		width: 40%;
 	}
 	
 	/********************************************************
@@ -644,9 +1048,10 @@ ul#menu-footer {
 	/*------------------------------------------------------
 	H1 style for top level heading at the top of the page
 	------------------------------------------------------*/
-	.greeting {
+	.textwidget h1 {
 	  font-size: 2.291em !important;
-	}	
+	  text-align: center !important;
+	}
 	
 	/*------------------------------------------------------
 	As Seen On TV section adjustments
@@ -675,10 +1080,28 @@ ul#menu-footer {
 	.feature, .last {
 		margin-bottom: 0em;
 	}
+
+	/*------------------------------------------------------
+	Featured Products Area
+	------------------------------------------------------*/	
+	/*Button alignment*/
+	.textwidget .woocommerce ul li a h3 {
+		min-height: 140px;
+	}
+	
+	/*Button sizing*/
+	ul.products li.product .button, ul.products li.product .added_to_cart {
+		padding: 0.882em .818em !important;
+	}
 	
 	/********************************************************
 	4. Store Page
 	********************************************************/
+	/*Button alignment*/
+	#main ul li a h3 {
+		min-height: 120px !important;
+	}
+	
 	.single-product .images {
 		float: right !important;
 		width: 100% !important;
@@ -699,12 +1122,38 @@ ul#menu-footer {
 	/********************************************************
 	5. Book Page
 	********************************************************/	
-	a img[src*="book.png"]{
+/*
+	.book {
 		float: none;
 		padding: 0 0 0 80px;
 		width: 80%;
 		height: 80%;
-		/*border: 1px solid red;*/
+	}
+*/
+	.book {
+		float: right;
+		padding: 20px 0 20px 20px;
+		width: 96.5%;
+		border: 1px solid #CCCCCC;
+		background: rgb(255, 255, 255);
+		border-radius: 5px;
+		margin: 0 -10px 20px 20px;
+	}
+	
+	a img[src*="book.png"] {
+		float: right;
+		padding: 0px;
+		width: 80%;
+/* 		border: 1px solid green; */
+	}
+	
+	a.woo-sc-button.buy-now-btn.custom {
+		clear: both;
+		margin: 0 auto;
+		display: block;
+		width: 70%;
+		left: -10px;
+		position: relative;
 	}
 
 	/********************************************************
@@ -714,7 +1163,7 @@ ul#menu-footer {
 		border-radius: 50%;
 		margin-left: 90px;
 		margin: 0 auto;
-		border: 4px solid rgba(108, 197, 201, 1.0);
+		border: 6px solid rgba(108, 197, 201, 1.0);
 		display: block;
 	}
 	
@@ -724,5 +1173,50 @@ ul#menu-footer {
   	
 	ul#menu-footer-1 {
 		list-style: none;
+	}
+}
+
+@media screen and (max-width: 640px) {
+	/********************************************************
+	1. Home Page
+	********************************************************/
+	a#logo {
+		width: 25% !important;
+		margin-top: 2em !important;
+	}
+	
+	p.telenumber {
+		font-size: .65em !important;
+		margin-top: 2.5em !important;
+	}
+
+	/*------------------------------------------------------
+	Featured Products Area
+	------------------------------------------------------*/
+	/*Button alignment*/
+	.textwidget .woocommerce ul li a h3 {
+		min-height: 200px;
+	}
+	
+	/*Button to Reports Page*/
+	a.woo-sc-button.store.custom {
+		width: 80%;
+	}
+	
+	/********************************************************
+	2. Store Page
+	********************************************************/
+	/*Button alignment*/
+	#main ul li a h3 {
+		min-height: 280px !important;
+	}
+	
+	.woocommerce-ordering ul li:first-child, .woocommerce_ordering ul li:first-child {
+		margin-left: 0px !important;
+	}
+	
+	.woocommerce-ordering ul li, .woocommerce_ordering ul li {
+		margin-left: 0 !important;
+		margin-right: 6px !important;
 	}
 }
